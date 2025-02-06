@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
@@ -66,6 +67,18 @@ public class BowAndArrowGame extends JPanel implements ActionListener, KeyListen
         }
         repaint();
     }
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_UP && bowY > 0) bowY -= 10;
+        if (e.getKeyCode() == KeyEvent.VK_DOWN && bowY < 250) bowY += 10;
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) arrows.add(new Rectangle(bowX + 10, bowY + 20, 10, 5));
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
 
     public static void main(String[] args) {
 
