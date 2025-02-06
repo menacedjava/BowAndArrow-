@@ -28,6 +28,7 @@ public class BowAndArrowGame extends JPanel implements ActionListener, KeyListen
         timer = new Timer(20, this);
         timer.start();
     }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -67,6 +68,7 @@ public class BowAndArrowGame extends JPanel implements ActionListener, KeyListen
         }
         repaint();
     }
+
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP && bowY > 0) bowY -= 10;
@@ -75,13 +77,21 @@ public class BowAndArrowGame extends JPanel implements ActionListener, KeyListen
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+    }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    }
 
     public static void main(String[] args) {
-
+        JFrame frame = new JFrame("Bow and Arrow");
+        BowAndArrowGame game = new BowAndArrowGame();
+        frame.add(game);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
 
     }
 }
